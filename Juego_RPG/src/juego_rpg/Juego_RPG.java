@@ -23,7 +23,8 @@ public class Juego_RPG {
         String clase = "";
         int exp = 0;
         int lvl = 0;
-        int hp = 0;
+        int maxhp = 0;
+        int maxstamina = 0;
         int atk = 0;
         int def = 0;
         int intel = 0;
@@ -52,7 +53,8 @@ public class Juego_RPG {
         if (clase.equalsIgnoreCase("Caballero")) {
             exp = 0;
             lvl= 1;
-            hp = 200;
+            maxhp = 200;
+            maxstamina = 100;
             atk = 50;
             def = 75;
             intel = 25;
@@ -61,14 +63,58 @@ public class Juego_RPG {
         else if (clase.equalsIgnoreCase("Mago")) {
             exp = 0;
             lvl = 1;
-            hp = 125;
+            maxhp = 125;
+            maxstamina = 150;
             atk = 25;
             def = 45;
             intel = 80;
             res = 65;
         }
-        Jugador usuario = new Jugador (nombre, clase, exp, lvl, hp, atk, def, intel, res);
-        System.out.println(usuario.toString());
+        Jugador usuario = new Jugador (nombre, clase, exp, lvl, maxhp, maxstamina, atk, def, intel, res);
+        int hp = maxhp;
+        boolean juego = true;
+        do {
+            System.out.println("--------Menu--------");
+            System.out.println("1) Estadisticas del Jugador:");
+            System.out.println("2) Habilidades de Clase");
+            System.out.println("3) Batalla random");
+            System.out.println("4) Descansar");
+            System.out.println("5) Explorar mapa");
+            System.out.println("6) Pelear contra Jefe final");
+            System.out.println("7) Salir");
+            int opcion = scan.nextInt();
+            switch (opcion) {
+                case 1:
+                    System.out.println(usuario.toString());
+                    System.out.println("Hit points actuales=" + hp);
+                    break;
+                
+                case 2:
+                    System.out.println("Hola Mundo");
+                    break;
+                
+                case 3:
+                    System.out.println("Hola Mundo");
+                    break;
+                
+                case 4:
+                    System.out.println("Hola Mundo");
+                    break;
+                
+                case 5:
+                    System.out.println("Hola Mundo");
+                    break;
+                
+                case 6:
+                    System.out.println("Hola Mundo");
+                    break;
+                
+                default:
+                    juego = false;
+                    break;
+            }
+            System.out.println("");
+        } while (juego == true);
     }
     
 }

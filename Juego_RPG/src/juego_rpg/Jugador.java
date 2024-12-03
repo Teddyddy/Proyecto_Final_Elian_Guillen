@@ -16,18 +16,20 @@ public class Jugador {
     private String clase;
     private int exp;
     private int lvl;
-    private int hp;
+    private int maxhp;
+    private int maxstamina;
     private int atk;
     private int def;
     private int intel;
     private int res;
     
-    public Jugador (String nombre, String clase, int exp, int lvl, int hp, int atk, int def, int intel, int res) {
+    public Jugador (String nombre, String clase, int exp, int lvl, int maxhp, int maxstamina, int atk, int def, int intel, int res) {
         this.nombre = nombre;
         this.clase = clase;
         this.exp = 0;
         this.lvl = 1;
-        this.hp = hp;
+        this.maxhp = maxhp;
+        this.maxstamina = maxstamina;
         this.atk = atk;
         this.def = def;
         this.intel = intel;
@@ -46,8 +48,12 @@ public class Jugador {
         return lvl;
     }
     
-    public int Gethp() {
-        return hp;
+    public int Getmaxhp() {
+        return maxhp;
+    }
+    
+    public int Getmaxstamina() {
+        return maxstamina;
     }
     
     public int Getatk() {
@@ -78,8 +84,12 @@ public class Jugador {
         this.lvl = lvl;
     }
     
-    public void Sethp(int hp) {
-        this.hp = hp;
+    public void Setmaxhp(int maxhp) {
+        this.maxhp = maxhp;
+    }
+    
+    public void Setmaxstamina(int maxstamina) {
+        this.maxstamina = maxstamina;
     }
     
     public void Setatk(int atk) {
@@ -100,15 +110,15 @@ public class Jugador {
     
     @Override
     public String toString() {
-        return "Estadisticas del Jugador: {" +
-                "nombre='" + nombre + '\'' +
-                ", Nivel='" + lvl + '\'' +
-                ", EXP='" + exp + '\'' +
-                ", HP='" + hp + '\'' +
-                ", Atk='" + atk + '\'' +
-                ", Def='" + def + '\'' +
-                ", Int='" + intel + '\'' +
-                ", Res='" + res + '\'' +
-                '}';
+        return "Estadisticas del Jugador: " + '\n' +
+                "Nombre=" + nombre + '\n' +
+                "Nivel=" + lvl + '\n' +
+                "EXP=" + exp + '\n' +
+                "HP=" + maxhp + '\n' +
+                "Stamina=" + maxstamina + '\n' +
+                "Atk=" + atk + '\n' +
+                "Def=" + def + '\n' +
+                "Int=" + intel + '\n' +
+                "Res=" + res;
     }
 }
