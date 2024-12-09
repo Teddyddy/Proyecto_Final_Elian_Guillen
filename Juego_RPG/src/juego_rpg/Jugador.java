@@ -40,6 +40,10 @@ public class Jugador {
         return nombre;
     }
     
+    public String Getclase() {
+        return clase;
+    }
+    
     public int Getexp() {
         return exp;
     }
@@ -74,6 +78,10 @@ public class Jugador {
     
     public void Setnombre(String nombre) {
         this.nombre = nombre;
+    }
+    
+    public void Setclase(String clase) {
+        this.clase = clase;
     }
     
     public void Setexp(int exp) {

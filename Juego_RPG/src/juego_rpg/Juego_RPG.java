@@ -30,7 +30,19 @@ public class Juego_RPG {
         int intel = 0;
         int res = 0;
         int claseleccion;
-        //
+        //Variables para Habilidades
+        boolean fuego = false;
+        boolean regen = false;
+        boolean debilitar = false;
+        boolean incinerar = false;
+        boolean bloqueo = false;
+        boolean grito = false;
+        boolean directo = false;
+        boolean giro = false;
+        //Clases para habilidades
+        Caballero knight = new Caballero (bloqueo, grito, directo, giro);
+        Mago mage = new Mago (fuego, regen, debilitar, incinerar);
+        //Inicio
         System.out.print("Bienvenido(a)! Ingrese su nombre: ");
         nombre = scan.next();
         System.out.println("Escoja su Clase:");
@@ -49,6 +61,7 @@ public class Juego_RPG {
             else {
                 System.out.println("Error al elegir la clase, escoja de nuevo.");
             }
+        //estadisticas de clases
         } while (claseleccion != 1 && claseleccion !=2); 
         if (clase.equalsIgnoreCase("Caballero")) {
             exp = 0;
@@ -73,6 +86,7 @@ public class Juego_RPG {
         Jugador usuario = new Jugador (nombre, clase, exp, lvl, maxhp, maxstamina, atk, def, intel, res);
         int hp = maxhp;
         boolean juego = true;
+        //ciclo
         do {
             System.out.println("--------Menu--------");
             System.out.println("1) Estadisticas del Jugador:");
@@ -90,7 +104,92 @@ public class Juego_RPG {
                     break;
                 
                 case 2:
-                    System.out.println("Hola Mundo");
+                    usuario.Getclase();
+                    System.out.println("Habilidades de " + clase +":");
+                    System.out.print("Nivel 5: ");
+                    if (clase.equalsIgnoreCase("Caballero")){
+                        System.out.print("Bloqueo ");
+                        knight.Getbloqueo();
+                        if (bloqueo == false) {
+                            System.out.println("(no desbloqueado) bloquea todo el daño por el turno");
+                        }
+                        else if (bloqueo == true) {
+                            System.out.println("(desbloqueado) bloquea todo el daño por el turno");
+                        }
+                    }
+                    else{
+                        System.out.println("Bola de Fuego ");
+                        mage.Getfuego();
+                        if (fuego == false) {
+                            System.out.println("(no desbloqueado) lanza una bola de fuego");
+                        }
+                        else if (fuego == true) {
+                            System.out.println("(desbloqueado) lanza una bola de fuego");
+                        }
+                    }
+                    System.out.print("Nivel 10: ");
+                    if (clase.equalsIgnoreCase("Caballero")){
+                        System.out.print("Grito de Guerra ");
+                        knight.Getgrito();
+                        if (grito == false) {
+                            System.out.println("(no desbloqueado) grita para aumentar el daño");
+                        }
+                        else if (grito == true) {
+                            System.out.println("(desbloqueado) grita para aumentar el daño");
+                        }
+                    }
+                    else{
+                        System.out.println("Regeneracion ");
+                        mage.Getregen();
+                        if (regen == false) {
+                            System.out.println("(no desbloqueado) regenera el 25% de vida");
+                        }
+                        else if (regen == true) {
+                            System.out.println("(desbloqueado) regenera el 25% de vida");
+                        }
+                    }
+                    System.out.print("Nivel 15: ");
+                    if (clase.equalsIgnoreCase("Caballero")){
+                        System.out.print("Golpe Directo ");
+                        knight.Getdirecto();
+                        if (directo == false) {
+                            System.out.println("(no desbloqueado) asegura que el siguiente golpe sea un golpe critico");
+                        }
+                        else if (directo == true) {
+                            System.out.println("(desbloqueado) asegura que el siguiente golpe sea un golpe critico");
+                        }
+                    }
+                    else{
+                        System.out.println("Debilitar ");
+                        mage.Getdebilitar();
+                        if (debilitar == false) {
+                            System.out.println("(no desbloqueado) debilita al enemigo, cortando su defensa por 5 puntos");
+                        }
+                        else if (debilitar == true) {
+                            System.out.println("(desbloqueado) debilita al enemigo, cortando su defensa por 5 puntos");
+                        }
+                    }
+                    System.out.print("Nivel 20: ");
+                    if (clase.equalsIgnoreCase("Caballero")){
+                        System.out.print("Corte Giratorio ");
+                        knight.Getgiro();
+                        if (giro == false) {
+                            System.out.println("(no desbloqueado) Lanza un potente golpe giratorio");
+                        }
+                        else if (giro == true) {
+                            System.out.println("(desbloqueado) Lanza un potente golpe giratorio");
+                        }
+                    }
+                    else{
+                        System.out.println("Incinerar ");
+                        mage.Getincinerar();
+                        if (incinerar == false) {
+                            System.out.println("(no desbloqueado) envuelve al enemigo en llamas potentes");
+                        }
+                        else if (incinerar == true) {
+                            System.out.println("(desbloqueado) envuelve al enemigo en llamas potentes");
+                        }
+                    }
                     break;
                 
                 case 3:
@@ -98,7 +197,8 @@ public class Juego_RPG {
                     break;
                 
                 case 4:
-                    System.out.println("Hola Mundo");
+                    hp = maxhp;
+                    System.out.println("Descansaste... y regeneraste todos tus puntos de Vida!");
                     break;
                 
                 case 5:
