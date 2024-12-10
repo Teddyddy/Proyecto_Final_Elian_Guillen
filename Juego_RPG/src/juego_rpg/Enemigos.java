@@ -12,27 +12,24 @@ import java.util.ArrayList;
  */
 public class Enemigos {
     private String nombre;
-    private int hp;
+    private int maxhp;
     private int atk;
     private int def;
-    private int intel;
-    private int res;
     
-    public Enemigos (String nombre, int hp, int atk, int def, int intel, int res) {
+    
+    public Enemigos (String nombre, int maxhp, int atk, int def) {
         this.nombre = nombre;
-        this.hp = hp;
+        this.maxhp = maxhp;
         this.atk = atk;
         this.def = def;
-        this.intel = intel;
-        this.res = res;
     }
     
     public String Getnombre() {
         return nombre;
     }
     
-    public int Gethp() {
-        return hp;
+    public int Getmaxhp() {
+        return maxhp;
     }
     
     public int Getatk() {
@@ -42,21 +39,13 @@ public class Enemigos {
     public int Getdef() {
         return def;
     }
-    
-    public int Getintel() {
-        return intel;
-    }
-    
-    public int Getres() {
-        return res;
-    }
-    
+
     public void Setnombre(String nombre) {
         this.nombre = nombre;
     }
     
-    public void Sethp(int hp) {
-        this.hp = hp;
+    public void Setmaxhp(int maxhp) {
+        this.maxhp = maxhp;
     }
     
     public void Setatk(int atk) {
@@ -65,13 +54,5 @@ public class Enemigos {
     
     public void Setdef(int def) {
         this.def = def;
-    }
-    
-    public void Setintel(int intel) {
-        this.intel = intel;
-    }
-    
-    public void Setres(int res) {
-        this.res = res;
     }
 }

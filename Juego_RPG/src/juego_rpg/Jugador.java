@@ -17,23 +17,19 @@ public class Jugador {
     private int exp;
     private int lvl;
     private int maxhp;
-    private int maxstamina;
     private int atk;
     private int def;
     private int intel;
-    private int res;
     
-    public Jugador (String nombre, String clase, int exp, int lvl, int maxhp, int maxstamina, int atk, int def, int intel, int res) {
+    public Jugador (String nombre, String clase, int exp, int lvl, int maxhp, int atk, int def, int intel) {
         this.nombre = nombre;
         this.clase = clase;
         this.exp = 0;
         this.lvl = 1;
         this.maxhp = maxhp;
-        this.maxstamina = maxstamina;
         this.atk = atk;
         this.def = def;
         this.intel = intel;
-        this.res = res;
     }
     
     public String Getnombre() {
@@ -56,10 +52,6 @@ public class Jugador {
         return maxhp;
     }
     
-    public int Getmaxstamina() {
-        return maxstamina;
-    }
-    
     public int Getatk() {
         return atk;
     }
@@ -70,10 +62,6 @@ public class Jugador {
     
     public int Getintel() {
         return intel;
-    }
-    
-    public int Getres() {
-        return res;
     }
     
     public void Setnombre(String nombre) {
@@ -96,10 +84,6 @@ public class Jugador {
         this.maxhp = maxhp;
     }
     
-    public void Setmaxstamina(int maxstamina) {
-        this.maxstamina = maxstamina;
-    }
-    
     public void Setatk(int atk) {
         this.atk = atk;
     }
@@ -112,10 +96,6 @@ public class Jugador {
         this.intel = intel;
     }
     
-    public void Setres(int res) {
-        this.res = res;
-    }
-    
     @Override
     public String toString() {
         return "Estadisticas del Jugador: " + '\n' +
@@ -123,10 +103,8 @@ public class Jugador {
                 "Nivel=" + lvl + '\n' +
                 "EXP=" + exp + '\n' +
                 "HP=" + maxhp + '\n' +
-                "Stamina=" + maxstamina + '\n' +
                 "Atk=" + atk + '\n' +
                 "Def=" + def + '\n' +
-                "Int=" + intel + '\n' +
-                "Res=" + res;
+                "Int=" + intel;
     }
 }
