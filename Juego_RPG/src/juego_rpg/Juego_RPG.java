@@ -138,49 +138,8 @@ public class Juego_RPG {
         do {
             exp = usuario.Getexp();
             while (exp >= 100) {
-                lvl = usuario.Getlvl();
-                maxhp = usuario.Getmaxhp();
-                atk = usuario.Getatk();
-                def = usuario.Getdef();
-                intel = usuario.Getintel();
-                lvl = lvl +1;
-                maxhp = maxhp +5;
-                atk = atk + 1;
-                def = def +1;
-                intel = intel +1;
-                exp = exp - 100;
-                System.out.println("Felicidades! ha subido de nivel!");
-                System.out.println("Todas sus estadisticas han mejorado un poco!");
-                System.out.println("Escoga cual estadistica desea mejorar aun mas!");
-                do {
-                    System.out.println("1) HP + 5");
-                    System.out.println("2) DEF + 4");
-                    System.out.println("3) ATK + 4");
-                    System.out.println("4) INT + 4");
-                    System.out.print("su eleccion? ");
-                    lvlup = scan.nextInt();
-                    if (lvlup < 0 || lvlup > 4) {
-                        System.out.println("Error. intente de nuevo.");
-                    }
-                } while (lvlup < 0 || lvlup > 4);
-                if (lvlup == 1) {
-                    maxhp = maxhp + 5;
-                }
-                else if (lvlup == 2) {
-                    def = def + 4;
-                }
-                else if (lvlup == 3) {
-                    atk = atk + 4;
-                }
-                else if (lvlup == 4) {
-                    intel = intel +4;
-                }
+                exp = Metodos.levelup(usuario);
                 usuario.Setexp(exp);
-                usuario.Setlvl(lvl);
-                usuario.Setmaxhp(maxhp);
-                usuario.Setdef(def);
-                usuario.Setatk(atk);
-                usuario.Setintel(intel);
             }
             if (hp <= 0) {
                 break;
@@ -188,7 +147,7 @@ public class Juego_RPG {
             System.out.println("--------------------");
             System.out.println("HP: " + hp);
             System.out.println("--------Menu--------");
-            System.out.println("1) Estadisticas del Jugador:");
+            System.out.println("1) Estadisticas del Jugador");
             System.out.println("2) Batalla random");
             System.out.println("3) Descansar");
             System.out.println("4) Explorar mapa");
@@ -287,6 +246,7 @@ public class Juego_RPG {
                     break;
                 
                 case 3:
+                    usuario.Getmaxhp();
                     hp = maxhp;
                     System.out.println("Descansaste... y regeneraste todos tus puntos de Vida!");
                     break;
